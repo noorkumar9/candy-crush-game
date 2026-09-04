@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle Royale - Combat Arena</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- HUD (Heads Up Display) -->
+        <div class="hud">
+            <div class="hud-left">
+                <div class="health-bar">
+                    <div id="healthFill" class="health-fill"></div>
+                </div>
+                <span id="healthText">100/100</span>
+            </div>
+
+            <div class="hud-center">
+                <div id="playerName" class="player-name">Player 1</div>
+                <div id="killCount" class="kill-count">Kills: 0</div>
+            </div>
+
+            <div class="hud-right">
+                <div class="ammo-display">
+                    <span id="ammo">30</span> / <span id="maxAmmo">90</span>
+                </div>
+                <div class="weapon-display">
+                    <span id="weaponName">Assault Rifle</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Game Canvas -->
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- Minimap -->
+        <div class="minimap">
+            <canvas id="minimapCanvas"></canvas>
+            <div id="playerDot" class="player-dot"></div>
+        </div>
+
+        <!-- Weapon Selection -->
+        <div class="weapon-select">
+            <h3>🎯 Weapons</h3>
+            <div class="weapons-list">
+                <button class="weapon-btn active" data-weapon="rifle">Rifle</button>
+                <button class="weapon-btn" data-weapon="shotgun">Shotgun</button>
+                <button class="weapon-btn" data-weapon="sniper">Sniper</button>
+                <button class="weapon-btn" data-weapon="pistol">Pistol</button>
+            </div>
+        </div>
+
+        <!-- Control Panel -->
+        <div class="controls-panel">
+            <div class="control-info">
+                <p>⬆️⬇️⬅️➡️ Move | Space: Jump | Click: Shoot | R: Reload</p>
+            </div>
+            <div class="control-buttons">
+                <button id="startBtn" class="btn btn-start">Start Game</button>
+                <button id="pauseBtn" class="btn btn-pause">Pause</button>
+                <button id="settingsBtn" class="btn btn-settings">Settings</button>
+            </div>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="gameOverScreen" class="game-over-screen hidden">
+            <div class="game-over-content">
+                <h1>MISSION COMPLETE</h1>
+                <div class="stats">
+                    <p>Kills: <span id="finalKills">0</span></p>
+                    <p>Damage Dealt: <span id="finalDamage">0</span></p>
+                    <p>Distance Traveled: <span id="finalDistance">0</span>m</p>
+                    <p>Total Score: <span id="finalScore">0</span></p>
+                </div>
+                <div class="buttons">
+                    <button id="restartBtn" class="btn btn-primary">Play Again</button>
+                    <button id="menuBtn" class="btn btn-secondary">Main Menu</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pause Menu -->
+        <div id="pauseMenu" class="pause-menu hidden">
+            <div class="pause-content">
+                <h2>PAUSED</h2>
+                <button id="resumeBtn" class="btn">Resume</button>
+                <button id="settingsMenuBtn" class="btn">Settings</button>
+                <button id="quitBtn" class="btn">Quit Game</button>
+            </div>
+        </div>
+
+        <!-- Crosshair -->
+        <div id="crosshair" class="crosshair"></div>
+
+        <!-- Damage Indicator -->
+        <div id="damageIndicator" class="damage-indicator"></div>
+
+        <!-- Chat/Messages -->
+        <div id="messageLog" class="message-log"></div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
